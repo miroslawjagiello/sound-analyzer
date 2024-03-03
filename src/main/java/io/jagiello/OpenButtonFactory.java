@@ -15,7 +15,7 @@ class OpenButtonFactory {
             FileChooser fileChooser = new FileChooser();
 
             FileChooser.ExtensionFilter extFilter =
-                    new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+                    new FileChooser.ExtensionFilter("WAV files (*.wav)", "*.wav");
 
             fileChooser.getExtensionFilters().add(extFilter);
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
