@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.jagiello.WavFileVisualizer.drawWave;
+
 class WavFileProcessor {
     static void process(File audioFile, GraphicsContext gc) throws UnsupportedAudioFileException, IOException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
@@ -38,17 +40,6 @@ class WavFileProcessor {
             gc.fillRect(i * audioSamples.length, 300 - audioSamples[i] / 128, audioSamples.length, 300);
         }
 
-        double width = 200;
-        double height = 100;
-        double centerX = width / 2;
-        double maxAmplitude = 1.0; // Maksymalna wartość amplitudy
-
-        for (int i = 0; i < audioSamples.length; i++) {
-            double x = i * (width / audioSamples.length);
-            double y = height / 2 + (audioSamples[i] / maxAmplitude) * (height / 2);
-            double rectHeight = 10; // Wysokość prostokąta reprezentującego próbkę
-            gc.setFill(Color.BLUE);
-            gc.fillRect(x, y, 0.1, rectHeight); // Rysowanie prostokąta
-        }
+        drawWave(gc, audioSamples);
     }
 }
