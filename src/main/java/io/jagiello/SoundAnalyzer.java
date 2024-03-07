@@ -16,6 +16,8 @@ import java.util.List;
 public class SoundAnalyzer extends Application {
 
     private static final String TITLE = "Sound Analyzer";
+    private static final double WINDOW_WIDTH = 1024;
+    private static final double WINDOW_HEIGHT = 700;
 
     @Override
     public void start(Stage primaryStage) {
@@ -34,10 +36,12 @@ public class SoundAnalyzer extends Application {
         root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, gc));
         root.getChildren().add(canvas);
 
-        Scene scene = new Scene(root, 1200, 800);
+        Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
+        primaryStage.setMinWidth(WINDOW_WIDTH);
+        primaryStage.setMinHeight(WINDOW_HEIGHT);
         primaryStage.show();
     }
 
