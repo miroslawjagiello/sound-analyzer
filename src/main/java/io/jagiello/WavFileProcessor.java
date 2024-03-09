@@ -1,7 +1,6 @@
 package io.jagiello;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 import javax.sound.sampled.AudioFormat;
