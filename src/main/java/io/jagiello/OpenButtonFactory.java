@@ -11,7 +11,7 @@ import java.io.IOException;
 
 class OpenButtonFactory {
 
-    Button createOpenFileBrowser(Stage primaryStage, GraphicsContext gc) {
+    Button createOpenFileBrowser(Stage primaryStage, GraphicsContext wavCanvasGc, GraphicsContext soundLevelCanvasGc) {
         Button btn = new Button();
         btn.setText("Open File Browser");
 
@@ -25,7 +25,7 @@ class OpenButtonFactory {
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
             File file = fileChooser.showOpenDialog(primaryStage);
             try {
-                WavFileProcessor.process(file, gc);
+                WavFileProcessor.process(file, wavCanvasGc, soundLevelCanvasGc);
             } catch (UnsupportedAudioFileException | IOException e) {
                 throw new RuntimeException(e);
             }

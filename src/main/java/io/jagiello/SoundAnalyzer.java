@@ -24,12 +24,16 @@ public class SoundAnalyzer extends Application {
 
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
 
-        Canvas canvas = new Canvas(800, 400);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        Canvas wavCanvas = new Canvas(800, 400);
+        GraphicsContext wavCanvasGc = wavCanvas.getGraphicsContext2D();
+
+        Canvas soundLevelCanvas = new Canvas(800, 400);
+        GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
 
         root.getChildren().add(label);
-        root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, gc));
-        root.getChildren().add(canvas);
+        root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, wavCanvasGc, soundLevelCanvasGc));
+        root.getChildren().add(wavCanvas);
+        root.getChildren().add(soundLevelCanvas);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
