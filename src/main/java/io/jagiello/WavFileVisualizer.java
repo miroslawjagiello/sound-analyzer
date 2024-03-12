@@ -5,8 +5,8 @@ import javafx.scene.paint.Color;
 
 public class WavFileVisualizer {
 
-    private static final double WIDTH = 200;
-    private static final double HEIGHT = 100;
+    private static final double WIDTH = 400;
+    private static final double HEIGHT = 200;
     private static final double CENTER_X = WIDTH / 2;
     private static final double MAX_AMPLITUDE = 1.0;
 
