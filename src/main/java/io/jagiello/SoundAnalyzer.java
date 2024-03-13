@@ -24,10 +24,10 @@ public class SoundAnalyzer extends Application {
 
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
 
-        Canvas wavCanvas = new Canvas(800, 400);
+        Canvas wavCanvas = new Canvas(400, 200);
         GraphicsContext wavCanvasGc = wavCanvas.getGraphicsContext2D();
 
-        Canvas soundLevelCanvas = new Canvas(800, 400);
+        Canvas soundLevelCanvas = new Canvas(400, 400);
         GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
 
         root.getChildren().add(label);
