@@ -23,6 +23,7 @@ public class SoundAnalyzer extends Application {
         root.setSpacing(5);
 
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
+        ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
 
         Canvas wavCanvas = new Canvas(400, 200);
         GraphicsContext wavCanvasGc = wavCanvas.getGraphicsContext2D();
@@ -31,6 +32,7 @@ public class SoundAnalyzer extends Application {
         GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
 
         root.getChildren().add(label);
+        root.getChildren().add(expTimeButtonsFactory.create());
         root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, wavCanvasGc, soundLevelCanvasGc));
         root.getChildren().add(wavCanvas);
         root.getChildren().add(soundLevelCanvas);

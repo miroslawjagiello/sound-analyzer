@@ -47,12 +47,6 @@ class WavFileProcessor {
         drawWave(wavCanvasGc, audioSamples);
 
         double[] soundLevel = DecibelCalculator.LdB(ExponentialAveragingCalculator.calculate(audioSamples, 1000, frameRate));
-        //float[] soundLevel = ExponentialAveragingCalculator.calculate(audioSamples, 125, frameRate);
-
-        //for (int i = 0; i < soundLevel.length - 1; i++) {
-        //    soundLevelCanvasGc.fillRect(i * soundLevel.length, 300 - soundLevel[i] / 128, soundLevel.length, 300);
-        //}
-
         drawWave(soundLevelCanvasGc, soundLevel);
     }
 }
