@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class SoundAnalyzer extends Application {
 
     private static final String TITLE = "Sound Analyzer";
@@ -22,6 +24,8 @@ public class SoundAnalyzer extends Application {
         VBox root = new VBox();
         root.setSpacing(5);
 
+        AtomicReference<Double> tau = new AtomicReference<>(125d);
+
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
         ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
 
@@ -32,7 +36,7 @@ public class SoundAnalyzer extends Application {
         GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
 
         root.getChildren().add(label);
-        root.getChildren().add(expTimeButtonsFactory.create());
+        root.getChildren().add(expTimeButtonsFactory.create(tau));
         root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, wavCanvasGc, soundLevelCanvasGc));
         root.getChildren().add(wavCanvas);
         root.getChildren().add(soundLevelCanvas);
