@@ -8,11 +8,14 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static io.jagiello.WavFileVisualizer.drawWave;
 
 class WavFileProcessor {
-    static void process(File audioFile, GraphicsContext wavCanvasGc, GraphicsContext soundLevelCanvasGc) throws UnsupportedAudioFileException, IOException {
+    static void process(File audioFile, GraphicsContext wavCanvasGc,
+                        AtomicReference<Double> tau, GraphicsContext soundLevelCanvasGc)
+            throws UnsupportedAudioFileException, IOException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
         AudioFormat format = audioInputStream.getFormat();
         long audioFileLength = audioFile.length();
@@ -46,7 +49,7 @@ class WavFileProcessor {
 
         drawWave(wavCanvasGc, audioSamples);
 
-        double[] soundLevel = DecibelCalculator.LdB(ExponentialAveragingCalculator.calculate(audioSamples, 1000, frameRate));
+        double[] soundLevel = DecibelCalculator.LdB(ExponentialAveragingCalculator.calculate(audioSamples, tau.get().floatValue(), frameRate));
         drawWave(soundLevelCanvasGc, soundLevel);
     }
 }

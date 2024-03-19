@@ -37,7 +37,7 @@ public class SoundAnalyzer extends Application {
 
         root.getChildren().add(label);
         root.getChildren().add(expTimeButtonsFactory.create(tau));
-        root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, wavCanvasGc, soundLevelCanvasGc));
+        root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, wavCanvasGc, tau, soundLevelCanvasGc));
         root.getChildren().add(wavCanvas);
         root.getChildren().add(soundLevelCanvas);
 
