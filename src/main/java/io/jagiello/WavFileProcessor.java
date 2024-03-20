@@ -1,5 +1,6 @@
 package io.jagiello;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 import javax.sound.sampled.AudioFormat;
@@ -13,8 +14,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import static io.jagiello.WavFileVisualizer.drawWave;
 
 class WavFileProcessor {
-    static void process(File audioFile, GraphicsContext wavCanvasGc,
-                        AtomicReference<Double> tau, GraphicsContext soundLevelCanvasGc)
+    static void process(File audioFile, Canvas wavCanvas,
+                        AtomicReference<Double> tau, Canvas soundLevelCanvas)
             throws UnsupportedAudioFileException, IOException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
         AudioFormat format = audioInputStream.getFormat();
@@ -43,6 +44,8 @@ class WavFileProcessor {
             }
         }
 
+        GraphicsContext wavCanvasGc = wavCanvas.getGraphicsContext2D();
+        wavCanvasGc.clearRect(0, 0, wavCanvas.getWidth(), wavCanvas.getHeight());
         for (int i = 0; i < audioSamples.length - 1; i++) {
             wavCanvasGc.fillRect(i * audioSamples.length, 300 - audioSamples[i] / 128, audioSamples.length, 300);
         }
@@ -50,6 +53,8 @@ class WavFileProcessor {
         drawWave(wavCanvasGc, audioSamples);
 
         double[] soundLevel = DecibelCalculator.LdB(ExponentialAveragingCalculator.calculate(audioSamples, tau.get().floatValue(), frameRate));
+        GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
+        soundLevelCanvasGc.clearRect(0, 0, soundLevelCanvas.getWidth(), soundLevelCanvas.getHeight());
         drawWave(soundLevelCanvasGc, soundLevel);
     }
 }

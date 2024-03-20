@@ -1,5 +1,6 @@
 package io.jagiello;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
@@ -12,8 +13,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 class OpenButtonFactory {
 
-    Button createOpenFileBrowser(Stage primaryStage, GraphicsContext wavCanvasGc,
-                                 AtomicReference<Double> tau,  GraphicsContext soundLevelCanvasGc) {
+    Button createOpenFileBrowser(Stage primaryStage, Canvas wavCanvas,
+                                 AtomicReference<Double> tau,  Canvas soundLevelCanvas) {
         Button btn = new Button();
         btn.setText("Open File Browser");
 
@@ -27,7 +28,7 @@ class OpenButtonFactory {
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
             File file = fileChooser.showOpenDialog(primaryStage);
             try {
-                WavFileProcessor.process(file, wavCanvasGc, tau, soundLevelCanvasGc);
+                WavFileProcessor.process(file, wavCanvas, tau, soundLevelCanvas);
             } catch (UnsupportedAudioFileException | IOException e) {
                 throw new RuntimeException(e);
             }
