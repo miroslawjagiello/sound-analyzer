@@ -13,7 +13,7 @@ public class ExpTimeButtonsFactory {
             tau.set(1000d);
         });
         RadioButton rb2 = new RadioButton("125");
-        rb1.setSelected(true);
+        rb2.setSelected(true);
         rb2.setOnAction(event -> {
             tau.set(125d);
         });
