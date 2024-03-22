@@ -1,6 +1,9 @@
 package io.jagiello;
 
-class WavFile {
+import lombok.Builder;
+
+@Builder
+class WavFileData {
     private long audioFileLength;
     private int frameSize;
     private float frameRate;

@@ -27,6 +27,15 @@ class WavFileProcessor {
         float[] audioSamples = new float[(int)numFrames];
         byte[] audioBytes = new byte[(int)audioFileLength];
 
+        WavFileData wavFileData = WavFileData.builder()
+                .audioFileLength(audioFile.length())
+                .frameSize(format.getFrameSize())
+                .frameRate(format.getFrameRate())
+                .numFrames(audioFileLength / frameSize)
+                .audioSamples(new float[(int)numFrames])
+                .audioBytes(new byte[(int)audioFileLength])
+                .build();
+
         // Read the audio bytes and convert them to samples
         audioInputStream.read(audioBytes);
 
