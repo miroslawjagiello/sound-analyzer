@@ -1,6 +1,5 @@
 package io.jagiello;
 
-import lombok.Builder;
 import lombok.Getter;
 
 import javax.sound.sampled.AudioFormat;
@@ -12,15 +11,20 @@ import java.io.IOException;
 
 @Getter
 class WavFileData {
-    final private long audioFileLength;
-    final private int frameSize;
-    final private float frameRate;
-    final private long numFrames;
 
-    final private float[] audioSamples;
-    final private byte[] audioBytes;
+    private final String name;
+
+    private final long audioFileLength;
+    private final int frameSize;
+    private final float frameRate;
+    private final long numFrames;
+
+    private final float[] audioSamples;
+    private final byte[] audioBytes;
 
     WavFileData(File audioFile) throws UnsupportedAudioFileException, IOException {
+        this.name = audioFile.getName();
+
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
         AudioFormat format = audioInputStream.getFormat();
         this.audioFileLength = audioFile.length();
