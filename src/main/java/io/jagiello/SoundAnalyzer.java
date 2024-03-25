@@ -3,7 +3,6 @@ package io.jagiello;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -34,7 +33,9 @@ public class SoundAnalyzer extends Application {
 
         root.getChildren().add(label);
         root.getChildren().add(expTimeButtonsFactory.create(tau));
-        root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, wavCanvas, tau, soundLevelCanvas));
+        AtomicReference<Label> fileName = new AtomicReference<>(new Label(""));
+        root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage, fileName, wavCanvas, tau, soundLevelCanvas));
+        root.getChildren().add(fileName.get());
         root.getChildren().add(wavCanvas);
         root.getChildren().add(soundLevelCanvas);
 

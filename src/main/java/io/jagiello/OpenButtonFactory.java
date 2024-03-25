@@ -1,8 +1,8 @@
 package io.jagiello;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -13,8 +13,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 class OpenButtonFactory {
 
-    Button createOpenFileBrowser(Stage primaryStage, Canvas wavCanvas,
-                                 AtomicReference<Double> tau,  Canvas soundLevelCanvas) {
+    Button createOpenFileBrowser(Stage primaryStage, AtomicReference<Label> fileName, Canvas wavCanvas,
+                                 AtomicReference<Double> tau, Canvas soundLevelCanvas) {
         Button btn = new Button();
         btn.setText("Open File Browser");
 
@@ -33,7 +33,7 @@ class OpenButtonFactory {
                 throw new RuntimeException(e);
             }
             if (file != null) {
-                System.out.println("File selected: " + file.getAbsolutePath());
+                fileName.get().setText("File name: " + file.getName());
             }
         });
         return btn;
