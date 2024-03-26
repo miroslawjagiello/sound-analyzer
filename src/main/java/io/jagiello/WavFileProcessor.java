@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import static io.jagiello.WavFileVisualizer.drawWave;
 
 class WavFileProcessor {
-    static void process(File audioFile, Canvas wavCanvas,
+    static WavFileData process(File audioFile, Canvas wavCanvas,
                         AtomicReference<Double> tau, Canvas soundLevelCanvas)
             throws UnsupportedAudioFileException, IOException {
 
@@ -28,9 +28,11 @@ class WavFileProcessor {
 
         double[] soundLevel = DecibelCalculator.LdB(
                 ExponentialAveragingCalculator.calculate(
-                        wavFileData.getAudioSamples(), tau.get().floatValue(), wavFileData.getFrameRate()));
+                        wavFileData.getAudioSamples(), tau.get().floatValue(), wavFileData.getSamplingRate()));
         GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
         soundLevelCanvasGc.clearRect(0, 0, soundLevelCanvas.getWidth(), soundLevelCanvas.getHeight());
         drawWave(soundLevelCanvasGc, soundLevel);
+
+        return wavFileData;
     }
 }

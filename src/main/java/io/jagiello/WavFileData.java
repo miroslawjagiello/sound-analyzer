@@ -16,7 +16,7 @@ class WavFileData {
 
     private final long audioFileLength;
     private final int frameSize;
-    private final float frameRate;
+    private final float samplingRate;
     private final long numFrames;
 
     private final float[] audioSamples;
@@ -29,7 +29,7 @@ class WavFileData {
         AudioFormat format = audioInputStream.getFormat();
         this.audioFileLength = audioFile.length();
         this.frameSize = format.getFrameSize();
-        this.frameRate = format.getFrameRate();
+        this.samplingRate = format.getFrameRate();
         this.numFrames = audioFileLength / frameSize;
 
         this.audioSamples = new float[(int)numFrames];

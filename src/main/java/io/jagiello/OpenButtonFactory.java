@@ -13,8 +13,12 @@ import java.util.concurrent.atomic.AtomicReference;
 
 class OpenButtonFactory {
 
-    Button createOpenFileBrowser(Stage primaryStage, AtomicReference<Label> fileName, Canvas wavCanvas,
-                                 AtomicReference<Double> tau, Canvas soundLevelCanvas) {
+    Button createOpenFileBrowser(Stage primaryStage,
+                                 AtomicReference<Label> fileName,
+                                 AtomicReference<Label> samplingRate,
+                                 Canvas wavCanvas,
+                                 AtomicReference<Double> tau,
+                                 Canvas soundLevelCanvas) {
         Button btn = new Button();
         btn.setText("Open File Browser");
 
@@ -27,13 +31,15 @@ class OpenButtonFactory {
             fileChooser.getExtensionFilters().add(extFilter);
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
             File file = fileChooser.showOpenDialog(primaryStage);
+            WavFileData wavFileData;
             try {
-                WavFileProcessor.process(file, wavCanvas, tau, soundLevelCanvas);
+                wavFileData = WavFileProcessor.process(file, wavCanvas, tau, soundLevelCanvas);
             } catch (UnsupportedAudioFileException | IOException e) {
                 throw new RuntimeException(e);
             }
             if (file != null) {
-                fileName.get().setText("File name: " + file.getName());
+                fileName.get().setText("File name: " + wavFileData.getName());
+                samplingRate.get().setText("Sampling rate: " + wavFileData.getSamplingRate() + " Hz");
             }
         });
         return btn;
