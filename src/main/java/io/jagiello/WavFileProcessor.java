@@ -28,7 +28,7 @@ class WavFileProcessor {
 
         double[] soundLevel = DecibelCalculator.LdB(
                 ExponentialAveragingCalculator.calculate(
-                        wavFileData.getAudioSamples(), tau.get().floatValue(), wavFileData.getSamplingRate()));
+                        wavFileData.getAudioSamples(), tau.get().floatValue(), wavFileData.getSampleRate()));
         GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
         soundLevelCanvasGc.clearRect(0, 0, soundLevelCanvas.getWidth(), soundLevelCanvas.getHeight());
         drawWave(soundLevelCanvasGc, soundLevel);

@@ -16,6 +16,7 @@ class OpenButtonFactory {
     Button createOpenFileBrowser(Stage primaryStage,
                                  AtomicReference<Label> fileName,
                                  AtomicReference<Label> samplingRate,
+                                 AtomicReference<Label> sampleSizeInBits,
                                  Canvas wavCanvas,
                                  AtomicReference<Double> tau,
                                  Canvas soundLevelCanvas) {
@@ -39,7 +40,8 @@ class OpenButtonFactory {
             }
             if (file != null) {
                 fileName.get().setText("File name: " + wavFileData.getName());
-                samplingRate.get().setText("Sampling rate: " + wavFileData.getSamplingRate() + " Hz");
+                samplingRate.get().setText("Sampling rate: " + wavFileData.getSampleRate() + " Hz");
+                sampleSizeInBits.get().setText(wavFileData.getSampleSizeInBits() + " bit");
             }
         });
         return btn;
