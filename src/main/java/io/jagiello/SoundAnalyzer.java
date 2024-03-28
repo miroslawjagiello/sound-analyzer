@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -41,6 +42,10 @@ public class SoundAnalyzer extends Application {
         root.getChildren().add(fileName.get());
         root.getChildren().add(samplingRate.get());
         root.getChildren().add(sampleSizeInBits.get());
+        TitledPane fileInfoPane = new TitledPane();
+        fileInfoPane.setText("File info");
+
+        root.getChildren().add(fileInfoPane);
         root.getChildren().add(wavCanvas);
         root.getChildren().add(soundLevelCanvas);
 
