@@ -1,7 +1,7 @@
 package io.jagiello;
 
-public class DecibelCalculator {
-    public static double[] LdB(float[] input) {
+class DecibelCalculator {
+    static double[] LdB(float[] input) {
         int len = input.length;
         double[] dB = new double[len];
 

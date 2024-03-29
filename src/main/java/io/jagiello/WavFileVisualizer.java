@@ -3,7 +3,7 @@ package io.jagiello;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class WavFileVisualizer {
+class WavFileVisualizer {
 
     private static final double WIDTH = 400;
     private static final double HEIGHT = 200;
