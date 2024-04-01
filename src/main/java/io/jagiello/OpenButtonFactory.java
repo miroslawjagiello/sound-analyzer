@@ -14,9 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 class OpenButtonFactory {
 
     Button createOpenFileBrowser(Stage primaryStage,
-                                 AtomicReference<Label> fileName,
-                                 AtomicReference<Label> samplingRate,
-                                 AtomicReference<Label> sampleSizeInBits,
+                                 AtomicReference<FileInfoLabels> fileInfoLabels,
                                  Canvas wavCanvas,
                                  AtomicReference<Double> tau,
                                  Canvas soundLevelCanvas) {
@@ -39,9 +37,9 @@ class OpenButtonFactory {
                 throw new RuntimeException(e);
             }
             if (file != null) {
-                fileName.get().setText("File name: " + wavFileData.getName());
-                samplingRate.get().setText("Sampling rate: " + wavFileData.getSampleRate() + " Hz");
-                sampleSizeInBits.get().setText(wavFileData.getSampleSizeInBits() + " bit");
+                fileInfoLabels.get().setFileName(wavFileData.getName());
+                fileInfoLabels.get().setSamplingRate(wavFileData.getSampleRate());
+                fileInfoLabels.get().setSampleSizeInBits(wavFileData.getSampleSizeInBits());
             }
         });
         return btn;

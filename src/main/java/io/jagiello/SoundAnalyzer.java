@@ -34,16 +34,14 @@ public class SoundAnalyzer extends Application {
 
         root.getChildren().add(label);
         root.getChildren().add(expTimeButtonsFactory.create(tau));
-        AtomicReference<Label> fileName = new AtomicReference<>(new Label(""));
-        AtomicReference<Label> samplingRate = new AtomicReference<>(new Label(""));
-        AtomicReference<Label> sampleSizeInBits = new AtomicReference<>(new Label(""));
+        AtomicReference<FileInfoLabels> fileInfoLabels = new AtomicReference<>(new FileInfoLabels());
         root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage,
-                fileName, samplingRate, sampleSizeInBits, wavCanvas, tau, soundLevelCanvas));
+                fileInfoLabels, wavCanvas, tau, soundLevelCanvas));
         VBox fileInfoBox = new VBox();
         fileInfoBox.setSpacing(5);
-        fileInfoBox.getChildren().add(fileName.get());
-        fileInfoBox.getChildren().add(samplingRate.get());
-        fileInfoBox.getChildren().add(sampleSizeInBits.get());
+        fileInfoBox.getChildren().add(fileInfoLabels.get().getFileName());
+        fileInfoBox.getChildren().add(fileInfoLabels.get().getSamplingRate());
+        fileInfoBox.getChildren().add(fileInfoLabels.get().getSampleSizeInBits());
         TitledPane fileInfoPane = new TitledPane();
         fileInfoPane.setText("File info");
         fileInfoPane.setContent(fileInfoBox);
