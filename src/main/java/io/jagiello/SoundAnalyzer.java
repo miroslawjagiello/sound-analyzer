@@ -42,13 +42,21 @@ public class SoundAnalyzer extends Application {
         fileInfoBox.getChildren().add(fileInfoLabels.get().getFileName());
         fileInfoBox.getChildren().add(fileInfoLabels.get().getSamplingRate());
         fileInfoBox.getChildren().add(fileInfoLabels.get().getSampleSizeInBits());
+
         TitledPane fileInfoPane = new TitledPane();
         fileInfoPane.setText("File info");
         fileInfoPane.setContent(fileInfoBox);
-
         root.getChildren().add(fileInfoPane);
-        root.getChildren().add(wavCanvas);
-        root.getChildren().add(soundLevelCanvas);
+
+        TitledPane wavPane = new TitledPane();
+        wavPane.setText("");
+        wavPane.setContent(wavCanvas);
+        root.getChildren().add(wavPane);
+
+        TitledPane soundLevelPane = new TitledPane();
+        soundLevelPane.setText("");
+        soundLevelPane.setContent(soundLevelCanvas);
+        root.getChildren().add(soundLevelPane);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
