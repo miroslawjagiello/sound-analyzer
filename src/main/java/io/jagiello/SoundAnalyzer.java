@@ -49,12 +49,12 @@ public class SoundAnalyzer extends Application {
         root.getChildren().add(fileInfoPane);
 
         TitledPane wavPane = new TitledPane();
-        wavPane.setText("");
+        wavPane.setText("Sound wave");
         wavPane.setContent(wavCanvas);
         root.getChildren().add(wavPane);
 
         TitledPane soundLevelPane = new TitledPane();
-        soundLevelPane.setText("");
+        soundLevelPane.setText("Sound Level");
         soundLevelPane.setContent(soundLevelCanvas);
         root.getChildren().add(soundLevelPane);
 
