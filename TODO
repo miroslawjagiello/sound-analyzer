@@ -1,5 +1,7 @@
 TODO
 improve layout
+add axes to the charts
+the ability to set the sound level in a specific time range
 
 DONE
 //calculate sound level of wave file
