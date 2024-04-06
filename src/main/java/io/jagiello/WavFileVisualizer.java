@@ -18,6 +18,7 @@ class WavFileVisualizer {
             gc.setFill(Color.BLUE);
             gc.fillRect(x, y, 0.1, rectHeight);
         }
+        gc.fillText("Sound wave", 60, 50);
     }
 
     static void drawWave(GraphicsContext gc, double[] audioSamples) {
