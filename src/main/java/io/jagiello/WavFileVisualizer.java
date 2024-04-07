@@ -34,6 +34,7 @@ class WavFileVisualizer {
             lastX = x;
             lastY = y;
         }
+        gc.fillText("Sound level", 60, 50);
     }
 
 }
