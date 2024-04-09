@@ -19,6 +19,7 @@ class WavFileVisualizer {
             gc.fillRect(x, y, 0.1, rectHeight);
         }
         gc.setFill(Color.BLACK);
+        gc.strokeLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
         gc.fillText("Sound wave", 60, 50);
     }
 
@@ -27,7 +28,7 @@ class WavFileVisualizer {
         int height = (int) gc.getCanvas().getHeight();
         double lastX = 0, lastY = height / 2;
 
-        gc.setFill(Color.BLUE);
+        gc.setStroke(Color.BLUE);
         for (int i = 0; i < audioSamples.length; i++) {
             double x = (double) i / audioSamples.length * width;
             double y = height / 2 - audioSamples[i] * 2;
@@ -36,6 +37,8 @@ class WavFileVisualizer {
             lastX = x;
             lastY = y;
         }
+        gc.setStroke(Color.BLACK);
+        gc.strokeLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
         gc.setFill(Color.BLACK);
         gc.fillText("Sound level", 60, 50);
     }
