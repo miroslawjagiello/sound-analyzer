@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static io.jagiello.WavFileVisualizer.drawWave;
+import static io.jagiello.WavFileVisualizer.drawSoundLevel;
 
 class WavFileProcessor {
     static WavFileData process(File audioFile, Canvas wavCanvas,
@@ -24,14 +24,14 @@ class WavFileProcessor {
                     300 - wavFileData.getAudioSamples()[i] / 128, wavFileData.getAudioSamples().length, 300);
         }
 
-        drawWave(wavCanvasGc, wavFileData.getAudioSamples());
+        drawSoundLevel(wavCanvasGc, wavFileData.getAudioSamples());
 
         double[] soundLevel = DecibelCalculator.LdB(
                 ExponentialAveragingCalculator.calculate(
                         wavFileData.getAudioSamples(), tau.get().floatValue(), wavFileData.getSampleRate()));
         GraphicsContext soundLevelCanvasGc = soundLevelCanvas.getGraphicsContext2D();
         soundLevelCanvasGc.clearRect(0, 0, soundLevelCanvas.getWidth(), soundLevelCanvas.getHeight());
-        drawWave(soundLevelCanvasGc, soundLevel);
+        WavFileVisualizer.drawSoundLevel(soundLevelCanvasGc, soundLevel);
 
         return wavFileData;
     }

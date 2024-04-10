@@ -10,7 +10,7 @@ class WavFileVisualizer {
     private static final double CENTER_X = WIDTH / 2;
     private static final double MAX_AMPLITUDE = 1.0;
 
-    static void drawWave(GraphicsContext gc, float[] audioSamples) {
+    static void drawSoundLevel(GraphicsContext gc, float[] audioSamples) {
         gc.setFill(Color.BLUE);
         for (int i = 0; i < audioSamples.length; i++) {
             double x = i * (WIDTH / audioSamples.length);
@@ -23,7 +23,7 @@ class WavFileVisualizer {
         gc.fillText("Sound wave", 60, 50);
     }
 
-    static void drawWave(GraphicsContext gc, double[] audioSamples) {
+    static void drawSoundLevel(GraphicsContext gc, double[] audioSamples) {
         int width = (int) gc.getCanvas().getWidth();
         int height = (int) gc.getCanvas().getHeight();
         double lastX = 0, lastY = height / 2;
