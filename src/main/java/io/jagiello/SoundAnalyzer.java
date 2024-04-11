@@ -3,6 +3,7 @@ package io.jagiello;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
@@ -30,6 +31,15 @@ public class SoundAnalyzer extends Application {
         ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
 
         Canvas wavCanvas = new Canvas(400, 200);
+        GraphicsContext gc = wavCanvas.getGraphicsContext2D();
+        wavCanvas.setOnMouseClicked(event -> {
+            double x = event.getX();
+            double y = event.getY();
+
+            // Draw a text at the click location
+            gc.fillText("Click detected at (" + x + ", " + y + ")", x, y);
+        });
+
         Canvas soundLevelCanvas = new Canvas(400, 400);
 
         root.getChildren().add(label);
