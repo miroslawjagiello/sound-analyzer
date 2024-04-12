@@ -17,6 +17,10 @@ public class SoundAnalyzer extends Application {
     private static final double WINDOW_WIDTH = 1024;
     private static final double WINDOW_HEIGHT = 700;
 
+    private static final double CANVAS_WIDTH = 400;
+    private static final double WAV_CANVAS_HEIGHT = 200;
+    private static final double SOUND_LEVEL_CANVAS_HEIGHT = 400;
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -30,7 +34,7 @@ public class SoundAnalyzer extends Application {
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
         ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
 
-        Canvas wavCanvas = new Canvas(400, 200);
+        Canvas wavCanvas = new Canvas(CANVAS_WIDTH, WAV_CANVAS_HEIGHT);
         GraphicsContext gc = wavCanvas.getGraphicsContext2D();
         wavCanvas.setOnMouseClicked(event -> {
             double x = event.getX();
@@ -40,7 +44,7 @@ public class SoundAnalyzer extends Application {
             gc.fillText("Click detected at (" + x + ", " + y + ")", x, y);
         });
 
-        Canvas soundLevelCanvas = new Canvas(400, 400);
+        Canvas soundLevelCanvas = new Canvas(CANVAS_WIDTH, SOUND_LEVEL_CANVAS_HEIGHT);
 
         root.getChildren().add(label);
         root.getChildren().add(expTimeButtonsFactory.create(tau));
