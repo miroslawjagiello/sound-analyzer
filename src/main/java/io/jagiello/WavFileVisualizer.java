@@ -20,7 +20,7 @@ class WavFileVisualizer {
         }
         gc.setFill(Color.BLACK);
         gc.strokeLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
-        gc.fillText("Sound wave", 60, 50);
+        gc.fillText("0", 0, HEIGHT/2 + 12);
     }
 
     static void drawSoundLevel(GraphicsContext gc, double[] audioSamples) {
