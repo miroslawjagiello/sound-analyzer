@@ -40,7 +40,7 @@ class WavFileVisualizer {
         gc.setStroke(Color.BLACK);
         gc.strokeLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
         gc.setFill(Color.BLACK);
-        gc.fillText("Sound level", 60, 50);
+        gc.fillText("0", 0, HEIGHT/2 + 12);
     }
 
 }
