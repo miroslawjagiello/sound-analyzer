@@ -40,6 +40,7 @@ class OpenButtonFactory {
                 fileInfoLabels.get().setFileName(wavFileData.getName());
                 fileInfoLabels.get().setSamplingRate(wavFileData.getSampleRate());
                 fileInfoLabels.get().setSampleSizeInBits(wavFileData.getSampleSizeInBits());
+                fileInfoLabels.get().setLength(wavFileData.getWaveLengthInSeconds());
             }
         });
         return btn;

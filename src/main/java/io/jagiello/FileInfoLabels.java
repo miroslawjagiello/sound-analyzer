@@ -8,6 +8,7 @@ class FileInfoLabels {
     private final Label fileName = new Label("");
     private final Label samplingRate = new Label("");
     private final Label sampleSizeInBits = new Label("");
+    private final Label length = new Label("");
 
     public void setFileName(String fileName) {
         this.fileName.setText("File name: " + fileName);
@@ -20,4 +21,10 @@ class FileInfoLabels {
     public void setSampleSizeInBits(int sampleSizeInBits) {
         this.sampleSizeInBits.setText(sampleSizeInBits + " bit");
     };
+
+
+    public void setLength(double length) {
+        this.length.setText("Length: " + length + "s");
+    }
+
 }
