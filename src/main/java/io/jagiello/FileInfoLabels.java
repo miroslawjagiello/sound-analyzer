@@ -3,6 +3,8 @@ package io.jagiello;
 import javafx.scene.control.Label;
 import lombok.Getter;
 
+import java.text.DecimalFormat;
+
 @Getter
 class FileInfoLabels {
     private final Label fileName = new Label("");
@@ -24,7 +26,8 @@ class FileInfoLabels {
 
 
     public void setLength(double length) {
-        this.length.setText("Length: " + length + "s");
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        this.length.setText("Length: " + decimalFormat.format(length) + "s");
     }
 
 }
