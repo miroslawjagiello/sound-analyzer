@@ -12,22 +12,20 @@ class FileInfoLabels {
     private final Label sampleSizeInBits = new Label("");
     private final Label length = new Label("");
 
-    public void setFileName(String fileName) {
+    void setFileName(String fileName) {
         this.fileName.setText("File name: " + fileName);
     }
 
-    public void setSamplingRate(float samplingRate) {
+    void setSamplingRate(float samplingRate) {
         this.samplingRate.setText("Sampling rate: " + samplingRate + " Hz");
     }
 
-    public void setSampleSizeInBits(int sampleSizeInBits) {
+    void setSampleSizeInBits(int sampleSizeInBits) {
         this.sampleSizeInBits.setText(sampleSizeInBits + " bit");
     };
 
-
-    public void setLength(double length) {
+    void setLength(double length) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         this.length.setText("Length: " + decimalFormat.format(length) + "s");
     }
-
 }

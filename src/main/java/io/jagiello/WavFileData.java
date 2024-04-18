@@ -52,11 +52,11 @@ class WavFileData {
         }
     }
 
-    public float getSampleRate() {
+    float getSampleRate() {
         return format.getSampleRate();
     }
 
-    public int getSampleSizeInBits() {
+    int getSampleSizeInBits() {
         return format.getSampleSizeInBits();
     }
 }
