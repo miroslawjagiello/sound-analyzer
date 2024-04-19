@@ -8,19 +8,20 @@ class WavFileVisualizer {
     private static final double WIDTH = 400;
     private static final double HEIGHT = 200;
     private static final double CENTER_X = WIDTH / 2;
+    private static final double CENTER_Y = HEIGHT / 2;
     private static final double MAX_AMPLITUDE = 1.0;
 
     static void drawSoundLevel(GraphicsContext gc, float[] audioSamples) {
         gc.setFill(Color.BLUE);
         for (int i = 0; i < audioSamples.length; i++) {
             double x = i * (WIDTH / audioSamples.length);
-            double y = HEIGHT / 2 + (audioSamples[i] / MAX_AMPLITUDE) * (HEIGHT / 2);
+            double y = CENTER_Y + (audioSamples[i] / MAX_AMPLITUDE) * (CENTER_Y);
             double rectHeight = 10;
             gc.fillRect(x, y, 0.1, rectHeight);
         }
         gc.setFill(Color.BLACK);
-        gc.strokeLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
-        gc.fillText("0", 0, HEIGHT/2 + 12);
+        gc.strokeLine(0, CENTER_Y, WIDTH, CENTER_Y);
+        gc.fillText("0", 0, CENTER_Y + 12);
     }
 
     static void drawSoundLevel(GraphicsContext gc, double[] audioSamples) {
@@ -38,9 +39,9 @@ class WavFileVisualizer {
             lastY = y;
         }
         gc.setStroke(Color.BLACK);
-        gc.strokeLine(0, HEIGHT/2, WIDTH, HEIGHT/2);
+        gc.strokeLine(0, CENTER_Y, WIDTH, CENTER_Y);
         gc.setFill(Color.BLACK);
-        gc.fillText("0", 0, HEIGHT/2 + 12);
+        gc.fillText("0", 0, CENTER_Y + 12);
     }
 
 }
