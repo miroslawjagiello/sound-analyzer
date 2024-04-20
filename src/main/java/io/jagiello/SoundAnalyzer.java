@@ -1,6 +1,7 @@
 package io.jagiello;
 
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -10,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.concurrent.atomic.AtomicReference;
+
+import static io.jagiello.Utils.addPane;
 
 public class SoundAnalyzer extends Application {
 
@@ -58,20 +61,9 @@ public class SoundAnalyzer extends Application {
         fileInfoBox.getChildren().add(fileInfoLabels.get().getSampleSizeInBits());
         fileInfoBox.getChildren().add(fileInfoLabels.get().getLength());
 
-        TitledPane fileInfoPane = new TitledPane();
-        fileInfoPane.setText("File info");
-        fileInfoPane.setContent(fileInfoBox);
-        root.getChildren().add(fileInfoPane);
-
-        TitledPane wavPane = new TitledPane();
-        wavPane.setText("Sound wave");
-        wavPane.setContent(wavCanvas);
-        root.getChildren().add(wavPane);
-
-        TitledPane soundLevelPane = new TitledPane();
-        soundLevelPane.setText("Sound Level");
-        soundLevelPane.setContent(soundLevelCanvas);
-        root.getChildren().add(soundLevelPane);
+        addPane("File info", fileInfoBox, root);
+        addPane("Sound wave", wavCanvas, root);
+        addPane("Sound Level", soundLevelCanvas, root);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
