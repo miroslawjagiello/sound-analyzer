@@ -43,7 +43,7 @@ public class SoundAnalyzer extends Application {
             double y = event.getY();
 
             // Draw a text at the click location
-            gc.fillText("Click detected at (" + x + ", " + y + ")", x, y);
+            //gc.fillText("Click detected at (" + x + ", " + y + ")", x, y);
         });
 
         Canvas soundLevelCanvas = new Canvas(CANVAS_WIDTH, SOUND_LEVEL_CANVAS_HEIGHT);
