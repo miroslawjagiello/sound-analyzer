@@ -32,6 +32,7 @@ public class SoundAnalyzer extends Application {
         root.setSpacing(5);
 
         AtomicReference<Double> tau = new AtomicReference<>(125d);
+        AtomicReference<Double> xPosition = new AtomicReference<>(0d);
 
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
         ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
