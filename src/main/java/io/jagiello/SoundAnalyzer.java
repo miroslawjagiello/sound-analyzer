@@ -38,16 +38,20 @@ public class SoundAnalyzer extends Application {
         ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
 
         Canvas wavCanvas = new Canvas(CANVAS_WIDTH, WAV_CANVAS_HEIGHT);
-        GraphicsContext gc = wavCanvas.getGraphicsContext2D();
+        GraphicsContext gcWavCanvas = wavCanvas.getGraphicsContext2D();
+
+        Canvas soundLevelCanvas = new Canvas(CANVAS_WIDTH, SOUND_LEVEL_CANVAS_HEIGHT);
+        GraphicsContext gcSoundLevelCanvas = soundLevelCanvas.getGraphicsContext2D();
+
         wavCanvas.setOnMouseClicked(event -> {
             double x = event.getX();
             double y = event.getY();
 
             // Draw a text at the click location
-            //gc.fillText("Click detected at (" + x + ", " + y + ")", x, y);
+            gcWavCanvas.fillText("Click detected at (" + x + ", " + y + ")", x, y);
+            gcSoundLevelCanvas.fillText("Click detected at (" + x + ", " + y + ")", x, y);
         });
 
-        Canvas soundLevelCanvas = new Canvas(CANVAS_WIDTH, SOUND_LEVEL_CANVAS_HEIGHT);
 
         root.getChildren().add(label);
         root.getChildren().add(expTimeButtonsFactory.create(tau));
