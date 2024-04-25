@@ -45,6 +45,7 @@ public class SoundAnalyzer extends Application {
 
         wavCanvas.setOnMouseClicked(event -> {
             double x = event.getX();
+            xPosition.set(x);
             double y = event.getY();
 
             // Draw a text at the click location
