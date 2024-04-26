@@ -19,8 +19,10 @@ class WavFileVisualizer {
             double rectHeight = 10;
             gc.fillRect(x, y, 0.1, rectHeight);
         }
-        gc.setFill(Color.BLACK);
+        gc.setStroke(Color.BLACK);
         gc.strokeLine(0, CENTER_Y, WIDTH, CENTER_Y);
+
+        gc.setFill(Color.BLACK);
         gc.fillText("0", 0, CENTER_Y + 12);
     }
 

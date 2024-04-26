@@ -6,6 +6,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -49,8 +50,12 @@ public class SoundAnalyzer extends Application {
             double y = event.getY();
 
             // Draw a text at the click location
-            gcWavCanvas.fillText("Click detected at (" + x + ", " + y + ")", x, y);
-            gcSoundLevelCanvas.fillText("Click detected at (" + x + ", " + y + ")", x, y);
+
+            gcWavCanvas.setStroke(Color.RED);
+            gcWavCanvas.strokeLine(x, 0, x, WAV_CANVAS_HEIGHT);
+
+            gcSoundLevelCanvas.setStroke(Color.RED);
+            gcSoundLevelCanvas.strokeLine(x, 0, x, SOUND_LEVEL_CANVAS_HEIGHT);
         });
 
 
