@@ -16,8 +16,7 @@ class WavFileVisualizer {
         for (int i = 0; i < audioSamples.length; i++) {
             double x = i * (WIDTH / audioSamples.length);
             double y = CENTER_Y + (audioSamples[i] / MAX_AMPLITUDE) * (CENTER_Y);
-            double rectHeight = 10;
-            gc.fillRect(x, y, 0.1, rectHeight);
+            gc.fillRect(x, y, 0.1, 1);
         }
         gc.setStroke(Color.BLACK);
         gc.strokeLine(0, CENTER_Y, WIDTH, CENTER_Y);
