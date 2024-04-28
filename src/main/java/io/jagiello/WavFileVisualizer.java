@@ -20,7 +20,11 @@ class WavFileVisualizer {
         }
         gc.setStroke(Color.BLACK);
         gc.strokeLine(0, CENTER_Y, WIDTH, CENTER_Y);
-
+        gc.strokeLine(0, 0, 0, HEIGHT);
+        gc.setLineDashes(10, 5, 10, 5);
+        for (int i = 0; i <= 8 ; i ++) {
+            gc.strokeLine(0, HEIGHT * i / 8, WIDTH, HEIGHT * i / 8);
+        }
         gc.setFill(Color.BLACK);
         gc.fillText("0", 0, CENTER_Y + 12);
     }
