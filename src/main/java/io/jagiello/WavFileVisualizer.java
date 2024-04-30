@@ -6,9 +6,9 @@ import javafx.scene.paint.Color;
 class WavFileVisualizer {
 
     private static final double WIDTH = 400;
-    private static final double HEIGHT = 200;
+    private static final double HEIGHT_WAV = 200;
     private static final double CENTER_X = WIDTH / 2;
-    private static final double CENTER_Y = HEIGHT / 2;
+    private static final double CENTER_Y = HEIGHT_WAV / 2;
     private static final double MAX_AMPLITUDE = 1.0;
 
     static void drawSoundLevel(GraphicsContext gc, float[] audioSamples) {
@@ -20,11 +20,11 @@ class WavFileVisualizer {
         }
         gc.setStroke(Color.BLACK);
         gc.strokeLine(0, CENTER_Y, WIDTH, CENTER_Y);
-        gc.strokeLine(0, 0, 0, HEIGHT);
+        gc.strokeLine(0, 0, 0, HEIGHT_WAV);
         gc.setLineDashes(10, 5, 10, 5);
         for (int i = 0; i <= 8 ; i ++) {
-            gc.strokeLine(0, HEIGHT * i / 8, WIDTH, HEIGHT * i / 8);
-            gc.strokeLine(WIDTH * i / 8, 0, WIDTH * i / 8, HEIGHT);
+            gc.strokeLine(0, HEIGHT_WAV * i / 8, WIDTH, HEIGHT_WAV * i / 8);
+            gc.strokeLine(WIDTH * i / 8, 0, WIDTH * i / 8, HEIGHT_WAV);
         }
         gc.setFill(Color.BLACK);
         gc.fillText("0", 0, CENTER_Y + 12);
@@ -46,6 +46,14 @@ class WavFileVisualizer {
         }
         gc.setStroke(Color.BLACK);
         gc.strokeLine(0, CENTER_Y, WIDTH, CENTER_Y);
+
+        gc.strokeLine(0, 0, 0, HEIGHT_WAV);
+        gc.setLineDashes(10, 5, 10, 5);
+        for (int i = 0; i <= 8 ; i ++) {
+            gc.strokeLine(0, HEIGHT_WAV * i / 8, WIDTH, HEIGHT_WAV * i / 8);
+            gc.strokeLine(WIDTH * i / 8, 0, WIDTH * i / 8, HEIGHT_WAV);
+        }
+
         gc.setFill(Color.BLACK);
         gc.fillText("0", 0, CENTER_Y + 12);
     }
