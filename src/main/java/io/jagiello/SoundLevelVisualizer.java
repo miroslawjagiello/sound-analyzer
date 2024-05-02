@@ -7,9 +7,7 @@ class SoundLevelVisualizer {
 
     private static final double WIDTH = 400;
     private static final double HEIGHT = 400;
-    private static final double CENTER_X = WIDTH / 2;
     private static final double CENTER_Y = HEIGHT / 2;
-    private static final double MAX_AMPLITUDE = 1.0;
 
     static void drawSoundLevel(GraphicsContext gc, double[] audioSamples) {
         int width = (int) gc.getCanvas().getWidth();
