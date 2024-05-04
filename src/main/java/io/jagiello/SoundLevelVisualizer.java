@@ -17,7 +17,8 @@ class SoundLevelVisualizer {
         gc.setStroke(Color.BLUE);
         for (int i = 0; i < audioSamples.length; i++) {
             double x = (double) i / audioSamples.length * width;
-            double y = height / 2 - audioSamples[i] * 2;
+            //double y = height / 2 - audioSamples[i] * 2;
+            double y = height / 4 - audioSamples[i] * 2;
             gc.strokeLine(lastX, lastY, x, y);
             lastX = x;
             lastY = y;
