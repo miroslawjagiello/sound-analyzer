@@ -10,8 +10,8 @@ class SoundLevelVisualizer {
     private static final double CENTER_Y = HEIGHT / 2;
 
     static void drawSoundLevel(GraphicsContext gc, double[] audioSamples) {
-        int width = (int) gc.getCanvas().getWidth();
-        int height = (int) gc.getCanvas().getHeight();
+        double width = gc.getCanvas().getWidth();
+        double height = gc.getCanvas().getHeight();
         double lastX = 0, lastY = height / 2;
 
         gc.setStroke(Color.BLUE);
