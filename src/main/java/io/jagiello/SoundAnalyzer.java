@@ -24,6 +24,10 @@ public class SoundAnalyzer extends Application {
     private static final double WAV_CANVAS_HEIGHT = 200;
     private static final double SOUND_LEVEL_CANVAS_HEIGHT = 400;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -77,11 +81,5 @@ public class SoundAnalyzer extends Application {
         primaryStage.setMinWidth(WINDOW_WIDTH);
         primaryStage.setMinHeight(WINDOW_HEIGHT);
         primaryStage.show();
-    }
-
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
