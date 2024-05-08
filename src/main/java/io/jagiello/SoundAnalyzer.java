@@ -75,7 +75,6 @@ public class SoundAnalyzer extends Application {
         addPane("Sound Level", soundLevelCanvas, root);
 
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(WINDOW_WIDTH);
