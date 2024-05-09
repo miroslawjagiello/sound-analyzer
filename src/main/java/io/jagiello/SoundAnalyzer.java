@@ -31,7 +31,7 @@ public class SoundAnalyzer extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        Label label = new Label(TITLE);
+        Label titleLabel = new Label(TITLE);
 
         VBox root = new VBox();
         root.setSpacing(5);
@@ -53,8 +53,6 @@ public class SoundAnalyzer extends Application {
             xPosition.set(x);
             double y = event.getY();
 
-            // Draw a text at the click location
-
             gcWavCanvas.setStroke(Color.RED);
             gcWavCanvas.strokeLine(x, 0, x, WAV_CANVAS_HEIGHT);
 
@@ -62,8 +60,7 @@ public class SoundAnalyzer extends Application {
             gcSoundLevelCanvas.strokeLine(x, 0, x, SOUND_LEVEL_CANVAS_HEIGHT);
         });
 
-
-        root.getChildren().add(label);
+        root.getChildren().add(titleLabel);
         root.getChildren().add(expTimeButtonsFactory.create(tau));
         AtomicReference<FileInfoLabels> fileInfoLabels = new AtomicReference<>(new FileInfoLabels());
         root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage,
