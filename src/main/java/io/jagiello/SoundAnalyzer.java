@@ -30,7 +30,6 @@ public class SoundAnalyzer extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
         Label titleLabel = new Label(TITLE);
 
         VBox root = new VBox();
@@ -51,7 +50,6 @@ public class SoundAnalyzer extends Application {
         wavCanvas.setOnMouseClicked(event -> {
             double x = event.getX();
             xPosition.set(x);
-            double y = event.getY();
 
             gcWavCanvas.setStroke(Color.RED);
             gcWavCanvas.strokeLine(x, 0, x, WAV_CANVAS_HEIGHT);
