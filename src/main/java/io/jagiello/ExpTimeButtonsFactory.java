@@ -3,7 +3,6 @@ package io.jagiello;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
-
 import java.util.concurrent.atomic.AtomicReference;
 
 class ExpTimeButtonsFactory {

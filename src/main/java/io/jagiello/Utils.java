@@ -3,7 +3,6 @@ package io.jagiello;
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
-
 import java.util.concurrent.atomic.AtomicReference;
 
 class Utils {

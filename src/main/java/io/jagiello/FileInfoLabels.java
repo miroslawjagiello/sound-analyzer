@@ -2,7 +2,6 @@ package io.jagiello;
 
 import javafx.scene.control.Label;
 import lombok.Getter;
-
 import java.text.DecimalFormat;
 
 @Getter
