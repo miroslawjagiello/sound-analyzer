@@ -5,7 +5,8 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
 import java.util.concurrent.atomic.AtomicReference;
 
-class Utils {
+class LayoutUtils {
+
     static VBox createFileInfoBox(AtomicReference<FileInfoLabels> fileInfoLabels) {
         VBox fileInfoBox = new VBox();
         fileInfoBox.setSpacing(5);

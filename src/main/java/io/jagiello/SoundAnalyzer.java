@@ -10,8 +10,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static io.jagiello.Utils.addPane;
-import static io.jagiello.Utils.createFileInfoBox;
+import static io.jagiello.LayoutUtils.addPane;
+import static io.jagiello.LayoutUtils.createFileInfoBox;
 
 public class SoundAnalyzer extends Application {
 
