@@ -68,6 +68,10 @@ public class SoundAnalyzer extends Application {
         addPane("Sound wave", wavCanvas, root);
         addPane("Sound Level", soundLevelCanvas, root);
 
+        createScene(primaryStage, root);
+    }
+
+    private static void createScene(Stage primaryStage, VBox root) {
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
