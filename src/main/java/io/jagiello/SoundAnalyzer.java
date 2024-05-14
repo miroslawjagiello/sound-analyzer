@@ -34,8 +34,6 @@ public class SoundAnalyzer extends Application {
         VBox root = new VBox();
         root.setSpacing(5);
 
-        AtomicReference<Double> tau = new AtomicReference<>(125d);
-        AtomicReference<Double> xPosition = new AtomicReference<>(0d);
 
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
         ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
@@ -46,6 +44,7 @@ public class SoundAnalyzer extends Application {
         Canvas soundLevelCanvas = new Canvas(CANVAS_WIDTH, SOUND_LEVEL_CANVAS_HEIGHT);
         GraphicsContext gcSoundLevelCanvas = soundLevelCanvas.getGraphicsContext2D();
 
+        AtomicReference<Double> xPosition = new AtomicReference<>(0d);
         wavCanvas.setOnMouseClicked(event -> {
             double x = event.getX();
             xPosition.set(x);
@@ -58,7 +57,10 @@ public class SoundAnalyzer extends Application {
         });
 
         root.getChildren().add(titleLabel);
+
+        AtomicReference<Double> tau = new AtomicReference<>(125d);
         root.getChildren().add(expTimeButtonsFactory.create(tau));
+
         AtomicReference<FileInfoLabels> fileInfoLabels = new AtomicReference<>(new FileInfoLabels());
         root.getChildren().add(openButtonFactory.createOpenFileBrowser(primaryStage,
                 fileInfoLabels, wavCanvas, tau, soundLevelCanvas));
