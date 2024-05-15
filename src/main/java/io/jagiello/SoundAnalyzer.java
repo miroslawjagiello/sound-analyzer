@@ -34,7 +34,6 @@ public class SoundAnalyzer extends Application {
         VBox root = new VBox();
         root.setSpacing(5);
 
-
         OpenButtonFactory openButtonFactory = new OpenButtonFactory();
         ExpTimeButtonsFactory expTimeButtonsFactory = new ExpTimeButtonsFactory();
 
