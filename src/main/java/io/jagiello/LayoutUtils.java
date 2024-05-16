@@ -6,7 +6,6 @@ import javafx.scene.layout.VBox;
 import java.util.concurrent.atomic.AtomicReference;
 
 class LayoutUtils {
-
     static VBox createFileInfoBox(AtomicReference<FileInfoLabels> fileInfoLabels) {
         VBox fileInfoBox = new VBox();
         fileInfoBox.setSpacing(5);
