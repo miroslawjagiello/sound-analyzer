@@ -10,7 +10,6 @@ import java.io.IOException;
 
 @Getter
 class WavFileData {
-
     private final String name;
 
     private final long audioFileLength;
