@@ -11,11 +11,13 @@ class ExpTimeButtonsFactory {
         rb1.setOnAction(event -> {
             tau.set(1000d);
         });
+
         RadioButton rb2 = new RadioButton("125");
         rb2.setSelected(true);
         rb2.setOnAction(event -> {
             tau.set(125d);
         });
+
         ToggleGroup group = new ToggleGroup();
         rb1.setToggleGroup(group);
         rb2.setToggleGroup(group);
