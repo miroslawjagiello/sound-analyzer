@@ -29,6 +29,7 @@ public class SoundAnalyzer extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         Label titleLabel = new Label(TITLE);
 
         VBox root = new VBox();
