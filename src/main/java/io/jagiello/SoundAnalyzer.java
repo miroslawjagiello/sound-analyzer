@@ -45,6 +45,7 @@ public class SoundAnalyzer extends Application {
         GraphicsContext gcSoundLevelCanvas = soundLevelCanvas.getGraphicsContext2D();
 
         AtomicReference<Double> xPosition = new AtomicReference<>(0d);
+
         wavCanvas.setOnMouseClicked(event -> {
             double x = event.getX();
             xPosition.set(x);
