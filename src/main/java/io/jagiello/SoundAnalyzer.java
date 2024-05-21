@@ -76,6 +76,7 @@ public class SoundAnalyzer extends Application {
 
     private static void createScene(Stage primaryStage, VBox root) {
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+        
         primaryStage.setTitle(TITLE);
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(WINDOW_WIDTH);
