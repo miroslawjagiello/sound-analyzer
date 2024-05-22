@@ -67,6 +67,7 @@ public class SoundAnalyzer extends Application {
                 fileInfoLabels, wavCanvas, tau, soundLevelCanvas));
 
         VBox fileInfoBox = createFileInfoBox(fileInfoLabels);
+
         addPane("File info", fileInfoBox, root);
         addPane("Sound wave", wavCanvas, root);
         addPane("Sound Level", soundLevelCanvas, root);
