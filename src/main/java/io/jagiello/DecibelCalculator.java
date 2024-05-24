@@ -2,6 +2,7 @@ package io.jagiello;
 
 class DecibelCalculator {
     static double[] LdB(float[] input) {
+        
         int len = input.length;
         double[] dB = new double[len];
         double maxLevel = -300;
