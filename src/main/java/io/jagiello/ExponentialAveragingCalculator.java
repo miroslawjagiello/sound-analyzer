@@ -2,6 +2,7 @@ package io.jagiello;
 
 class ExponentialAveragingCalculator {
     static float[] calculate(float[] input, float tau, float samplingFrequency) {
+
         int N = (int)Math.ceil(tau / 1000 * samplingFrequency);
         int lx = input.length;
         float[] y = new float[lx];
