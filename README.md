@@ -1,19 +1,16 @@
-# sound-analyzer
+# '100 commitów' challange application
+https://100commitow.pl/
+
+## sound-analyzer
 Virtual audio analyzer for analyzing audio files previously stored in a WAVE file.
 
-# tech
+## tech
 java 21 
 javaFX - https://jdk.java.net/javafx21/ 
 maven
 
-# run
+## run
 VM options --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.fxml
 
-# MVP
+## MVP
 sound level meter
-
-
-
-
-
-
