@@ -6,6 +6,7 @@ import javafx.scene.layout.VBox;
 import java.util.concurrent.atomic.AtomicReference;
 
 class ExpTimeButtonsFactory {
+
     VBox create(AtomicReference<Double> tau) {
         RadioButton rb1 = new RadioButton("1000");
         rb1.setOnAction(event -> {
