@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 
 @Getter
 class FileInfoLabels {
+
     private final Label fileName = new Label("");
     private final Label samplingRate = new Label("");
     private final Label sampleSizeInBits = new Label("");
