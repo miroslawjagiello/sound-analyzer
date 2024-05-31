@@ -4,6 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class VisualizerUtils {
+
     static void drawLines(GraphicsContext gc, double centerY, double width, double height) {
         gc.setStroke(Color.BLACK);
         gc.strokeLine(0, centerY, width, centerY);
