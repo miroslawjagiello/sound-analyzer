@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 class WavFileProcessor {
+
     static WavFileData process(File audioFile, Canvas wavCanvas,
                         AtomicReference<Double> tau, Canvas soundLevelCanvas)
             throws UnsupportedAudioFileException, IOException {
