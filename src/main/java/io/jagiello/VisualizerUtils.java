@@ -17,5 +17,6 @@ public class VisualizerUtils {
         }
         gc.setFill(Color.BLACK);
         gc.fillText("0", 0, centerY + 12);
+
     }
 }
