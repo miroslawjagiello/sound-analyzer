@@ -16,6 +16,7 @@ class DecibelCalculator {
                 maxLevel = dB[i];
             }
         }
+
         for (int i = 0; i < len; i++) {
             if (Double.NEGATIVE_INFINITY == dB[i]) dB[i] = minLevel;
         }
