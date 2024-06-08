@@ -28,4 +28,5 @@ class FileInfoLabels {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         this.length.setText("Length: " + decimalFormat.format(length) + "s");
     }
+
 }
